@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Digital Seguro - Segurança para a Melhor Idade</title>
+    <style>
+        /* --- DESIGN SYSTEM & ACESSIBILIDADE --- */
+        :root {
+            --cor-fundo: #f4f7f6;
+            --cor-fundo-recipiente: #ffffff;
+            --cor-texto: #2c3e50;
+            --cor-primaria: #1a5f7a;
+            --cor-primaria-foco: #12485c;
+            --cor-destaque: #e67e22;
+            --cor-sucesso: #27ae60;
+            --cor-perigo: #c0392b;
+            --cor-borda: #dcdde1;
+            --escala-fonte: 100%;
+        }
+
+        /* Tema Alto Contraste */
+        body.alto-contraste {
+            --cor-fundo: #000000;
+            --cor-fundo-recipiente: #121212;
+            --cor-texto: #ffffff;
+            --cor-primaria: #ffff00;
+            --cor-primaria-foco: #ffff33;
+            --cor-destaque: #ffff00;
+            --cor-sucesso: #00ff00;
+            --cor-perigo: #ff0000;
+            --cor-borda: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            font-size: calc(1.1rem * (var(--escala-fonte) / 100));
+            transition: background-color 0.3s, color 0.3s, font-size 0.2s;
+            padding-bottom: 60px;
+        }
+
+        /* Estilos de Foco para Acessibilidade Teclado */
+        input:focus, button:focus, a:focus {
+            outline: 4px solid var(--cor-destaque);
+            outline-offset: 2px;
+        }
+
+        /* --- BARRA DE ACESSIBILIDADE --- */
+        .barra-acessibilidade {
+            background-color: var(--cor-primaria);
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        body.alto-contraste .barra-acessibilidade {
+            background-color: #000000;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        .titulo-acessibilidade {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .controles-acessibilidade {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .botao-acessibilidade {
+            background-color: #ffffff;
+            color: #2c3e50;
+            border: 2px solid var(--cor-borda);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px; /* Tamanho mínimo de toque */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.1s;
+        }
+
+        .botao-acessibilidade:active {
+            transform: scale(0.95);
+        }
+
+        body.alto-contraste .botao-acessibilidade {
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        body.alto-contraste .botao-acessibilidade:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* --- INÍCIO: BANNER PRINCIPAL --- */
+        .banner-boas-vindas {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, #2980b9 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--cor-destaque);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body.alto-contraste .banner-boas-vindas {
+            background: #121212;
+            border-bottom: 5px solid #ffffff;
+        }
+
+        .banner-boas-vindas h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .banner-boas-vindas p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Botão de Ajuda em Destaque */
+        .botao-ajuda-principal {
+            background-color: var(--cor-perigo);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20 rgba(192, 57, 43, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+        }
+
+        .botao-ajuda-principal:hover, .botao-ajuda-principal:focus {
+            background-color: #a02d22;
+            transform: scale(1.03);
+        }
+
+        body.alto-contraste .botao-ajuda-principal {
+            background-color: #000000;
+            border: 3px solid #ff0000;
+            color: #ff0000;
+            box-shadow: none;
+        }
+
+        body.alto-contraste .botao-ajuda-principal:hover {
+            background-color: #ff0000;
+            color: #000000;
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .conteiner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px 0 20px;
+        }
+
+        /* --- SEÇÕES / CARDS --- */
+        .cartao-secao {
+            background-color: var(--cor-fundo-recipiente);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--cor-borda);
+        }
+
+        .titulo-secao {
+            color: var(--cor-primaria);
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--cor-destaque);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* --- GRID DE DICAS SIMPLIFICADAS --- */
+        .grade-dicas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .cartao-dica {
+            background-color: rgba(26, 95, 122, 0.04);
+            border-top: 8px solid var(--cor-primaria);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        body.alto-contraste .cartao-dica {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            border-top-width: 8px;
+        }
+
+        .cartao-dica h3 {
+            margin-bottom: 12px;
+            color: var(--cor-primaria);
+            font-size: 1.4rem;
+        }
+
+        .cartao-dica p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        /* --- ESTILOS DE TEXTO E DIREITOS --- */
+        .introducao-direitos {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--cor-primaria);
+        }
+
+        .lista-direitos {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .item-direito {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+        }
+
+        .item-direito::before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: var(--cor-sucesso);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        body.alto-contraste .item-direito::before {
+            color: #00ff00;
+        }
+
+        .item-direito strong {
+            color: var(--cor-primaria);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* --- ATITUDES SUSPEITAS (SINAIS DE GOLPE) --- */
+        .introducao-alerta {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .caixa-alerta {
+            background-color: rgba(192, 57, 43, 0.04);
+            border-left: 6px solid var(--cor-perigo);
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        body.alto-contraste .caixa-alerta {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            border-left-width: 8px;
+        }
+
+        .caixa-alerta h3 {
+            color: var(--cor-perigo);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .caixa-alerta p {
+            font-size: 1.1rem;
+        }
+
+        /* --- DIÁLOGO / MODAL DE AJUDA --- */
+        .janela-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .conteudo-modal {
+            background-color: var(--cor-fundo-recipiente);
+            border-radius: 16px;
+            padding: 35px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+            border: 2px solid var(--cor-borda);
+            position: relative;
+        }
+
+        body.alto-contraste .conteudo-modal {
+            border: 3px solid #ffffff;
+            background-color: #000000;
+        }
+
+        .titulo-modal {
+            color: var(--cor-perigo);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--cor-perigo);
+            padding-bottom: 8px;
+        }
+
+        .corpo-modal {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .corpo-modal p {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .corpo-modal ol {
+            padding-left: 25px;
+        }
+
+        .corpo-modal li {
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .fechar-modal {
+            background-color: var(--cor-primaria);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .fechar-modal:hover {
+            background-color: var(--cor-primaria-foco);
+        }
+
+        body.alto-contraste .fechar-modal {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+
+        body.alto-contraste .fechar-modal:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--cor-fundo-recipiente);
+            border-top: 1px solid var(--cor-borda);
+            margin-top: 60px;
+            font-size: 1rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 600px) {
+            .banner-boas-vindas h1 {
+                font-size: 1.9rem;
+            }
+            .banner-boas-vindas p {
+                font-size: 1.1rem;
+            }
+            .botao-ajuda-principal {
+                font-size: 1.2rem;
+                padding: 15px 25px;
+                width: 100%;
+                justify-content: center;
+            }
+            .barra-acessibilidade {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
+            }
+            .controles-acessibilidade {
+                justify-content: space-between;
+                margin-top: 5px;
+            }
+            .cartao-secao {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE ACESSIBILIDADE STICKY -->
+    <div class="barra-acessibilidade" role="toolbar" aria-label="Ferramentas de acessibilidade para leitura">
+        <span class="titulo-acessibilidade">Facilitar Leitura:</span>
+        <div class="controles-acessibilidade">
+            <button class="botao-acessibilidade" onclick="ajustarTamanhoFonte(-10)" aria-label="Diminuir tamanho das letras">Letra A -</button>
+            <button class="botao-acessibilidade" onclick="ajustarTamanhoFonte(10)" aria-label="Aumentar tamanho das letras">Letra A +</button>
+            <button class="botao-acessibilidade" id="alternador-contraste" onclick="alternarContraste()" aria-label="Mudar cores da tela para facilitar leitura">Preto e Branco ◑</button>
+        </div>
+    </div>
+
+    <!-- INÍCIO: BANNER COM BOTÃO DE AJUDA FUNCIONAL -->
+    <section class="banner-boas-vindas" aria-labelledby="titulo-banner">
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 10px;">
+            <h1 id="titulo-banner">Guia Digital Seguro 🛡️</h1>
+            <p>Sua segurança na internet é muito importante. Aprenda a se proteger, conheça os seus direitos e navegue com tranquilidade e autonomia!</p>
+            <button class="botao-ajuda-principal" onclick="abrirModalAjuda()" aria-label="Abrir instruções de emergência contra golpes">
+                🚨 Precisa de ajuda urgente? Clique aqui!
+            </button>
+        </div>
+    </section>
+
+    <div class="conteiner">
+        
+        <!-- SEÇÃO 2: DICAS IMPORTANTES (3 DICAS SIMPLES) -->
+        <section class="cartao-secao" aria-labelledby="titulo-dicas">
+            <h2 id="titulo-dicas" class="titulo-secao">Três Dicas de Ouro</h2>
+            <p style="margin-bottom: 25px;">Memorize estas três orientações para manter suas informações e suas economias bem protegidas:</p>
+            
+            <div class="grade-dicas">
+                <article class="cartao-dica">
+                    <h3>1. Senha é um segredo só seu</h3>
+                    <p>Bancos, lojas ou atendentes de suporte <strong>nunca</strong> vão ligar para você pedindo sua senha ou o código de segurança do cartão. Se alguém pedir, desligue na hora.</p>
+                </article>
+
+                <article class="cartao-dica">
+                    <h3>2. Ligue de volta no número antigo</h3>
+                    <p>Se um parente ou amigo mandar mensagem de um <strong>número novo</strong> pedindo dinheiro urgente por Pix, não envie. Faça uma ligação normal para o telefone antigo dele para confirmar se é verdade.</p>
+                </article>
+
+                <article class="cartao-dica">
+                    <h3>3. Cuidado com promessas fáceis</h3>
+                    <p>Mensagens de sorteios que você não se inscreveu, brindes de marcas famosas ou promessas de dinheiro fácil por WhatsApp geralmente são armadilhas. Evite clicar nesses links.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: DIREITOS NA INTERNET -->
+        <section class="cartao-secao" aria-labelledby="titulo-direitos">
+            <h2 id="titulo-direitos" class="titulo-secao">Nossos Direitos na Internet</h2>
+            <p class="introducao-direitos">Você sabia que a lei protege você enquanto você usa o celular ou o computador? Conheça os seus principais direitos:</p>
+            
+            <ul class="lista-direitos">
+                <li class="item-direito">
+                    <strong>Direito à Privacidade e Proteção de Dados</strong>
+                    Nenhuma empresa pode coletar seus dados (como nome, CPF ou telefone) e vendê-los ou usá-los sem a sua permissão clara. Suas informações pessoais pertencem apenas a você.
+                </li>
+                <li class="item-direito">
+                    <strong>Direito à Segurança contra Fraudes</strong>
+                    Se um banco ou loja na internet facilitar a ação de criminosos que causem prejuízos a você, eles têm o dever de ajudar a resolver o problema e, em muitos casos, devolver os valores perdidos.
+                </li>
+                <li class="item-direito">
+                    <strong>Direito de Bloquear e Denunciar</strong>
+                    Você tem total liberdade para bloquear qualquer pessoa ou empresa inconveniente no WhatsApp ou telefone. Você também tem o direito de denunciar e-mails falsos e mensagens indesejadas às autoridades.
+                </li>
+                <li class="item-direito">
+                    <strong>Direito ao Respeito e Atendimento Digno</strong>
+                    Todo usuário, independentemente da idade, tem o direito de ser tratado com paciência e clareza pelas empresas nas redes sociais ou canais de atendimento digital.
+                </li>
+            </ul>
+        </section>
+
+        <!-- SEÇÃO 4: COMO SABER SE ESTOU CAINDO EM UM GOLPE? -->
+        <section class="cartao-secao" aria-labelledby="titulo-golpe">
+            <h2 id="titulo-golpe" class="titulo-secao">Como saber se estou caindo em um golpe?</h2>
+            <p class="introducao-alerta">Os golpistas na internet costumam agir de formas parecidas. Fique muito atento se notar alguma destas atitudes:</p>
+
+            <div class="caixa-alerta">
+                <h3>⚠️ Muita Urgência</h3>
+                <p>Eles tentam fazer você agir rápido demais. Frases como "Sua conta será bloqueada hoje", "Responda agora" ou "Última chance" são táticas para você não ter tempo de pensar ou conversar com sua família.</p>
+            </div>
+
+            <div class="caixa-alerta">
+                <h3>⚠️ Pedidos de Segredo</h3>
+                <p>Se o atendente ou a pessoa na mensagem pedir para você <strong>não contar para ninguém</strong> sobre o que está fazendo, desconfie na mesma hora. Quem age de boa fé quer que você se sinta seguro e fale com seus familiares.</p>
+            </div>
+
+            <div class="caixa-alerta">
+                <h3>⚠️ Pedidos de Códigos de SMS</h3>
+                <p>Se alguém que te ligou disser: "Me fale o código que acabou de chegar no seu celular por SMS", <strong>pare imediatamente</strong>. Esse código dá acesso às suas contas e ao seu WhatsApp.</p>
+            </div>
+
+            <div class="caixa-alerta">
+                <h3>⚠️ Links para Baixar Aplicativos</h3>
+                <p>Ligações de pessoas fingindo ser do banco e instruindo você a instalar um aplicativo de "segurança" ou de "suporte" para limpar o celular. Bancos legítimos nunca pedem para você baixar programas de terceiros.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- DIÁLOGO / MODAL DE AJUDA -->
+    <div id="modal-ajuda" class="janela-modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-ajuda">
+        <div class="conteudo-modal">
+            <h2 id="titulo-modal-ajuda" class="titulo-modal">🚨 O que fazer se suspeitar de um golpe?</h2>
+            <div class="corpo-modal">
+                <p>Mantenha a calma. Siga estas orientações simples para se proteger:</p>
+                <ol>
+                    <li><strong>Pare de falar com a pessoa:</strong> Se estiver no telefone, desligue na hora. Se for no WhatsApp, pare de responder e bloqueie o número suspeito.</li>
+                    <li><strong>Fale com alguém de confiança:</strong> Chame um filho, neto, vizinho ou amigo próximo e conte o que aconteceu. Duas cabeças pensam melhor do que uma!</li>
+                    <li><strong>Contate seu Banco:</strong> Se você fez uma transferência Pix ou passou a senha do cartão, ligue imediatamente para o telefone oficial do seu banco (aquele que fica atrás do cartão físico).</li>
+                    <li><strong>Número Útil da Polícia Civil:</strong> Para registrar o caso ou pedir informações e ajuda de segurança pública, disque <strong>190</strong>.</li>
+                </ol>
+            </div>
+            <button class="fechar-modal" onclick="fecharModalAjuda()">Estou ciente, fechar janela</button>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="conteiner">
+            <p><strong>Guia Digital Seguro © 2026</strong></p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.85;">Este aplicativo foi construído com foco na acessibilidade de idosos e na segurança de informações digitais. Nenhum dado digitado neste dispositivo é coletado ou armazenado na rede.</p>
+        </div>
+    </footer>
+
+    <!-- INTERAÇÕES (JAVASCRIPT) -->
+    <script>
+        /* --- CONTROLES DE ACESSIBILIDADE --- */
+        let escalaAtual = 100;
+
+        function ajustarTamanhoFonte(quantidade) {
+            escalaAtual += quantidade;
+            if (escalaAtual < 80) escalaAtual = 80;
+            if (escalaAtual > 180) escalaAtual = 180;
+            document.documentElement.style.setProperty('--escala-fonte', escalaAtual + '%');
+        }
+
+        function alternarContraste() {
+            const corpoPagina = document.body;
+            corpoPagina.classList.toggle('alto-contraste');
+            
+            const botao = document.getElementById('alternador-contraste');
+            if (corpoPagina.classList.contains('alto-contraste')) {
+                botao.textContent = "Cores Padrão ◑";
+                botao.setAttribute('aria-label', 'Desativar modo de alto contraste');
+            } else {
+                botao.textContent = "Preto e Branco ◑";
+                botao.setAttribute('aria-label', 'Ativar modo de alto contraste');
+            }
+        }
+
+        /* --- CONTROLE DO MODAL DE AJUDA --- */
+        function abrirModalAjuda() {
+            document.getElementById('modal-ajuda').style.display = 'flex';
+            document.querySelector('.fechar-modal').focus();
+        }
+
+        function fecharModalAjuda() {
+            document.getElementById('modal-ajuda').style.display = 'none';
+        }
+
+        // Fecha o modal se o usuário clicar no fundo escuro
+        window.onclick = function(evento) {
+            const modal = document.getElementById('modal-ajuda');
+            if (evento.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
