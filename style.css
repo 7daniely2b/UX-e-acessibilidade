@@ -1,6 +1,4 @@
-
-        /* --- DESIGN SYSTEM & ACESSIBILIDADE --- */
-        :root {
+root {
             --cor-fundo: #0b1a30; /* Azul escuro profundo */
             --cor-fundo-recipiente: #15263f; /* Azul escuro médio para cartões */
             --cor-texto: #f4f7f6; /* Texto claro para excelente contraste */
