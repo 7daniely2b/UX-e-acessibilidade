@@ -1,0 +1,448 @@
+
+        /* --- DESIGN SYSTEM & ACESSIBILIDADE --- */
+        :root {
+            --cor-fundo: #0b1a30; /* Azul escuro profundo */
+            --cor-fundo-recipiente: #15263f; /* Azul escuro médio para cartões */
+            --cor-texto: #f4f7f6; /* Texto claro para excelente contraste */
+            --cor-primaria: #38bdf8; /* Azul claro brilhante para links e títulos */
+            --cor-primaria-foco: #0ea5e9;
+            --cor-destaque: #f59e0b; /* Amarelo/laranja para destaque */
+            --cor-sucesso: #10b981;
+            --cor-perigo: #ef4444;
+            --cor-borda: #1e293b;
+            --escala-fonte: 100%;
+        }
+
+        /* Tema Alto Contraste */
+        body.alto-contraste {
+            --cor-fundo: #000000;
+            --cor-fundo-recipiente: #121212;
+            --cor-texto: #ffffff;
+            --cor-primaria: #ffff00;
+            --cor-primaria-foco: #ffff33;
+            --cor-destaque: #ffff00;
+            --cor-sucesso: #00ff00;
+            --cor-perigo: #ff0000;
+            --cor-borda: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            font-size: calc(1.1rem * (var(--escala-fonte) / 100));
+            transition: background-color 0.3s, color 0.3s, font-size 0.2s;
+            padding-bottom: 60px;
+        }
+
+        /* Estilos de Foco para Acessibilidade Teclado */
+        input:focus, button:focus, a:focus {
+            outline: 4px solid var(--cor-destaque);
+            outline-offset: 2px;
+        }
+
+        /* --- BARRA DE ACESSIBILIDADE --- */
+        .barra-acessibilidade {
+            background-color: var(--cor-fundo-recipiente);
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--cor-borda);
+        }
+
+        body.alto-contraste .barra-acessibilidade {
+            background-color: #000000;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        .titulo-acessibilidade {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .controles-acessibilidade {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .botao-acessibilidade {
+            background-color: #1e293b;
+            color: #ffffff;
+            border: 2px solid var(--cor-borda);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px; /* Tamanho mínimo de toque */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .botao-acessibilidade:hover {
+            background-color: #334155;
+        }
+
+        .botao-acessibilidade:active {
+            transform: scale(0.95);
+        }
+
+        body.alto-contraste .botao-acessibilidade {
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        body.alto-contraste .botao-acessibilidade:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* --- INÍCIO: BANNER PRINCIPAL --- */
+        .banner-boas-vindas {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--cor-destaque);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        body.alto-contraste .banner-boas-vindas {
+            background: #121212;
+            border-bottom: 5px solid #ffffff;
+        }
+
+        .banner-boas-vindas h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .banner-boas-vindas p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Botão de Ajuda em Destaque */
+        .botao-ajuda-principal {
+            background-color: var(--cor-perigo);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+        }
+
+        .botao-ajuda-principal:hover, .botao-ajuda-principal:focus {
+            background-color: #dc2626;
+            transform: scale(1.03);
+        }
+
+        body.alto-contraste .botao-ajuda-principal {
+            background-color: #000000;
+            border: 3px solid #ff0000;
+            color: #ff0000;
+            box-shadow: none;
+        }
+
+        body.alto-contraste .botao-ajuda-principal:hover {
+            background-color: #ff0000;
+            color: #000000;
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .conteiner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px 0 20px;
+        }
+
+        /* --- SEÇÕES / CARDS --- */
+        .cartao-secao {
+            background-color: var(--cor-fundo-recipiente);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid var(--cor-borda);
+        }
+
+        .titulo-secao {
+            color: var(--cor-primaria);
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--cor-destaque);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* --- GRID DE DICAS SIMPLIFICADAS --- */
+        .grade-dicas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .cartao-dica {
+            background-color: rgba(56, 189, 248, 0.08);
+            border-top: 8px solid var(--cor-primaria);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        body.alto-contraste .cartao-dica {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            border-top-width: 8px;
+        }
+
+        .cartao-dica h3 {
+            margin-bottom: 12px;
+            color: var(--cor-primaria);
+            font-size: 1.4rem;
+        }
+
+        .cartao-dica p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        /* --- ESTILOS DE TEXTO E DIREITOS --- */
+        .introducao-direitos {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--cor-primaria);
+        }
+
+        .lista-direitos {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .item-direito {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            color: #e2e8f0;
+        }
+
+        .item-direito::before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: var(--cor-sucesso);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        body.alto-contraste .item-direito::before {
+            color: #00ff00;
+        }
+
+        .item-direito strong {
+            color: var(--cor-primaria);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* --- ATITUDES SUSPEITAS (SINAIS DE GOLPE) --- */
+        .introducao-alerta {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #e2e8f0;
+        }
+
+        .caixa-alerta {
+            background-color: rgba(239, 68, 68, 0.08);
+            border-left: 6px solid var(--cor-perigo);
+            border-radius: 0 12px 12px 0;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        body.alto-contraste .caixa-alerta {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            border-left-width: 8px;
+        }
+
+        .caixa-alerta h3 {
+            color: var(--cor-perigo);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .caixa-alerta p {
+            font-size: 1.1rem;
+            color: #f1f5f9;
+        }
+
+        /* --- DIÁLOGO / MODAL DE AJUDA --- */
+        .janela-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .conteudo-modal {
+            background-color: var(--cor-fundo-recipiente);
+            border-radius: 16px;
+            padding: 35px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+            border: 2px solid var(--cor-borda);
+            position: relative;
+        }
+
+        body.alto-contraste .conteudo-modal {
+            border: 3px solid #ffffff;
+            background-color: #000000;
+        }
+
+        .titulo-modal {
+            color: var(--cor-perigo);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--cor-perigo);
+            padding-bottom: 8px;
+        }
+
+        .corpo-modal {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .corpo-modal p {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #f1f5f9;
+        }
+
+        .corpo-modal ol {
+            padding-left: 25px;
+            color: #e2e8f0;
+        }
+
+        .corpo-modal li {
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .fechar-modal {
+            background-color: var(--cor-primaria);
+            color: #0f172a;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .fechar-modal:hover {
+            background-color: var(--cor-primaria-foco);
+        }
+
+        body.alto-contraste .fechar-modal {
+            background-color: #000000;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+
+        body.alto-contraste .fechar-modal:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--cor-fundo-recipiente);
+            border-top: 1px solid var(--cor-borda);
+            margin-top: 60px;
+            font-size: 1rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 600px) {
+            .banner-boas-vindas h1 {
+                font-size: 1.9rem;
+            }
+            .banner-boas-vindas p {
+                font-size: 1.1rem;
+            }
+            .botao-ajuda-principal {
+                font-size: 1.2rem;
+                padding: 15px 25px;
+                width: 100%;
+                justify-content: center;
+            }
+            .barra-acessibilidade {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
+            }
+            .controles-acessibilidade {
+                justify-content: space-between;
+                margin-top: 5px;
+            }
+            .cartao-secao {
+                padding: 20px;
+            }
+        }
