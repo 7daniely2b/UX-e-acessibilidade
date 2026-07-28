@@ -1,5 +1,28 @@
 <!-- MENU DE ACESSIBILIDADE -->
-<nav class="barra-acessibilidade" aria-label="Controles de Acessibilidade">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Acessibilidade</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <nav class="menu-acessibilidade" aria-label="Menu de Acessibilidade">
+    <button id="botao-aumentar-fonte" class="botao-acessibilidade" title="Aumentar tamanho do texto">A+</button>
+    <button id="botao-diminuir-fonte" class="botao-acessibilidade" title="Diminuir tamanho do texto">A-</button>
+    <button id="botao-ler-texto" class="botao-acessibilidade" title="Ouvir leitura da página">🔊 Ler Página</button>
+  </nav>
+
+  <main id="conteudo-principal">
+    <h1>Acessibilidade na Web</h1>
+    <p>A acessibilidade web permite que pessoas com diferentes capacidades possam navegar, compreender e interagir com a rede de forma autônoma.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html><nav class="barra-acessibilidade" aria-label="Controles de Acessibilidade">
     <button class="botao-controle" onclick="alterarFonte(2)" title="Aumentar texto">A+ Aumentar</button>
     <button class="botao-controle" onclick="alterarFonte(-2)" title="Diminuir texto">A- Diminuir</button>
     <button class="botao-controle botao-leitura" onclick="lerTexto()" id="btn-voz">�� Ouvir Página</button>
