@@ -39,3 +39,11 @@
     color: white;
     border: none;
 }
+.banner h1 {
+    padding-top: 70px;
+}
+@media (max-width: 600px) {
+    .banner h1 {
+    padding-top: 80px;
+    }
+}
