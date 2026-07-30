@@ -15,7 +15,7 @@
             
             const botao = document.getElementById('alternador-contraste');
             if (corpoPagina.classList.contains('alto-contraste')) {
-                botao.textContent = "Cores Padrão ◑";
+                botao.textContent = "Cores Padrao ◑";
                 botao.setAttribute('aria-label', 'Desativar modo de alto contraste');
             } else {
                 botao.textContent = "Preto e Branco ◑";
@@ -31,9 +31,9 @@
         function alternarLeituraVoz() {
             const botao = document.getElementById('alternador-voz');
 
-            // Verifica se o navegador suporta síntese de voz
+            // Verifica se o navegador suporta sintese de voz
             if (!sinteseVoz) {
-                botao.textContent = "Voz não suportada 🚫";
+                botao.textContent = "Voz nao suportada 🚫";
                 botao.disabled = true;
                 return;
             }
@@ -47,12 +47,12 @@
                 // Seleciona os textos do aplicativo para ler de forma ordenada
                 const textosParaLeitura = [];
 
-                // Titulo e descrição do banner
+                // Titulo e descricao do banner
                 const tituloBanner = document.getElementById('titulo-banner')?.innerText || "";
                 const descricaoBanner = document.querySelector('.banner-boas-vindas p')?.innerText || "";
                 textosParaLeitura.push(tituloBanner, descricaoBanner);
 
-                // Três dicas
+                // Tres dicas
                 const tituloDicas = document.getElementById('titulo-dicas')?.innerText || "";
                 textosParaLeitura.push(tituloDicas);
                 const cartoesDica = document.querySelectorAll('.cartao-dica');
@@ -60,7 +60,7 @@
                     textosParaLeitura.push(cartao.innerText);
                 });
 
-                // Seção Direitos
+                // Secao Direitos
                 const tituloDireitos = document.getElementById('titulo-direitos')?.innerText || "";
                 textosParaLeitura.push(tituloDireitos);
                 const itensDireitos = document.querySelectorAll('.item-direito');
@@ -68,7 +68,7 @@
                     textosParaLeitura.push(item.innerText);
                 });
 
-                // Seção Sinais de Golpe
+                // Secao Sinais de Golpe
                 const tituloGolpe = document.getElementById('titulo-golpe')?.innerText || "";
                 textosParaLeitura.push(tituloGolpe);
                 const caixasAlerta = document.querySelectorAll('.caixa-alerta');
@@ -76,7 +76,7 @@
                     textosParaLeitura.push(caixa.innerText);
                 });
 
-                // Une todos os textos com uma pausa natural de pontuação
+                // Une todos os textos com uma pausa natural de pontuacao
                 const textoCompleto = textosParaLeitura.filter(texto => texto.trim() !== "").join(". ");
 
                 if (textoCompleto) {
@@ -90,7 +90,7 @@
                         botao.setAttribute('aria-label', 'Ativar leitura de texto em voz alta');
                     };
 
-                    // Callback em caso de erro na reprodução da voz
+                    // Callback em caso de erro na reproducao da voz
                     expressaoVoz.onerror = function() {
                         lendoVoz = false;
                         botao.textContent = "Ouvir Texto 🔊";
@@ -111,7 +111,7 @@
         }
 
         function fecharModalAjuda() {
-            // Se a leitura de voz estiver ativa, para a leitura ao fechar para evitar confusão de áudio
+            // Se a leitura de voz estiver ativa, para a leitura ao fechar para evitar confusao de audio
             if (lendoVoz && sinteseVoz) {
                 sinteseVoz.cancel();
                 lendoVoz = false;
