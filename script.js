@@ -1,37 +1,125 @@
-// CODIGO DO MODAL
-let btnAjuda = document.querySelector(".botao-ajuda");
-let btnFechar = document.querySelector(".botao-fechar");
-let modal = document.querySelector(".modal-fundo");
+<script>
+        /* --- CONTROLES DE ACESSIBILIDADE --- */
+        let escalaAtual = 100;
 
-btnAjuda.addEventlistener("click", abreModal);
-btnFechar.addEventlistener("click", fechaModal);
+        function ajustarTamanhoFonte(quantidade) {
+            escalaAtual += quantidade;
+            if (escalaAtual < 80) escalaAtual = 80;
+            if (escalaAtual > 180) escalaAtual = 180;
+            document.documentElement.style.setProperty('--escala-fonte', escalaAtual + '%');
+        }
 
-function abreModal() {
-    modal.style.display = "block";
-}
+        function alternarContraste() {
+            const corpoPagina = document.body;
+            corpoPagina.classList.toggle('alto-contraste');
+            
+            const botao = document.getElementById('alternador-contraste');
+            if (corpoPagina.classList.contains('alto-contraste')) {
+                botao.textContent = "Cores Padrão ◑";
+                botao.setAttribute('aria-label', 'Desativar modo de alto contraste');
+            } else {
+                botao.textContent = "Preto e Branco ◑";
+                botao.setAttribute('aria-label', 'Ativar modo de alto contraste');
+            }
+        }
 
-function fechaModal() {
-    modal.style.display = "none";
-}
+        /* --- RECURSO DE LEITURA EM VOZ ALTA --- */
+        let lendoVoz = false;
+        let sinteseVoz = window.speechSynthesis;
+        let expressaoVoz = null;
 
+        function alternarLeituraVoz() {
+            const botao = document.getElementById('alternador-voz');
 
-// TAMANHO DE FONTES
-let tamanhoFontAtual = 16;
-const valorAdicionado = 2;
-const valorSubtraido = 2;
+            if (!sinteseVoz) {
+                botao.textContent = "Voz não suportada 🚫";
+                botao.disabled = true;
+                return;
+            }
 
-let btnAumentaFonte = document.getElementById("btnAumentaTexto");
-let btnDiminuiFonte = document.getElementById("btnAumentaTexto");
+            if (lendoVoz) {
+                sinteseVoz.cancel();
+                lendoVoz = false;
+                botao.textContent = "Ouvir Texto 🔊";
+                botao.setAttribute('aria-label', 'Ativar leitura de texto em voz alta');
+            } else {
+                const textosParaLeitura = [];
 
-btnAjuda.addEventlistener("click", btnAumentaFonte);
-btnFechar.addEventlistener("click", diminuiFonte);
+                const tituloBanner = document.getElementById('titulo-banner')?.innerText || "";
+                const descricaoBanner = document.querySelector('.banner-boas-vindas p')?.innerText || "";
+                textosParaLeitura.push(tituloBanner, descricaoBanner);
 
-function aumentaFonte()  {
-     tamanhoFontAtual = tamanhoFontAtual + valorAdicionado;
-    document.documentElement.style.fontSize = `${tamanhoFontAtual}px`;
-}
+                const tituloDicas = document.getElementById('titulo-dicas')?.innerText || "";
+                textosParaLeitura.push(tituloDicas);
+                const cartoesDica = document.querySelectorAll('.cartao-dica');
+                cartoesDica.forEach(cartao => {
+                    textosParaLeitura.push(cartao.innerText);
+                });
 
-function diminuiFonte() {
-    tamanhoFontAtual = tamanhoFontAtual + valorSubtraido;
-    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
-}
+                const tituloDireitos = document.getElementById('titulo-direitos')?.innerText || "";
+                textosParaLeitura.push(tituloDireitos);
+                const itensDireitos = document.querySelectorAll('.item-direito');
+                itensDireitos.forEach(item => {
+                    textosParaLeitura.push(item.innerText);
+                });
+
+                const tituloGolpe = document.getElementById('titulo-golpe')?.innerText || "";
+                textosParaLeitura.push(tituloGolpe);
+                const caixasAlerta = document.querySelectorAll('.caixa-alerta');
+                caixasAlerta.forEach(caixa => {
+                    textosParaLeitura.push(caixa.innerText);
+                });
+
+                const textoCompleto = textosParaLeitura.filter(texto => texto.trim() !== "").join(". ");
+
+                if (textoCompleto) {
+                    expressaoVoz = new SpeechSynthesisUtterance(textoCompleto);
+                    expressaoVoz.lang = 'pt-BR';
+                    
+                    expressaoVoz.onend = function() {
+                        lendoVoz = false;
+                        botao.textContent = "Ouvir Texto 🔊";
+                        botao.setAttribute('aria-label', 'Ativar leitura de texto em voz alta');
+                    };
+
+                    expressaoVoz.onerror = function() {
+                        lendoVoz = false;
+                        botao.textContent = "Ouvir Texto 🔊";
+                    };
+
+                    sinteseVoz.speak(expressaoVoz);
+                    lendoVoz = true;
+                    botao.textContent = "Parar Leitura ⏹️";
+                    botao.setAttribute('aria-label', 'Parar leitura de texto em voz alta');
+                }
+            }
+        }
+
+        /* --- CONTROLE DO MODAL DE AJUDA --- */
+        function abrirModalAjuda() {
+            document.getElementById('modal-ajuda').style.display = 'flex';
+            document.querySelector('.fechar-modal').focus();
+        }
+
+        function fecharModalAjuda() {
+            if (lendoVoz && sinteseVoz) {
+                sinteseVoz.cancel();
+                lendoVoz = false;
+                const botaoVoz = document.getElementById('alternador-voz');
+                if (botaoVoz) {
+                    botaoVoz.textContent = "Ouvir Texto 🔊";
+                    botaoVoz.setAttribute('aria-label', 'Ativar leitura de texto em voz alta');
+                }
+            }
+            document.getElementById('modal-ajuda').style.display = 'none';
+        }
+
+        window.onclick = function(evento) {
+            const modal = document.getElementById('modal-ajuda');
+            if (evento.target === modal) {
+                fecharModalAjuda();
+            }
+        }
+    </script>
+</body>
+</html>
