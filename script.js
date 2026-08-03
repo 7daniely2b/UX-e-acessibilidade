@@ -20,4 +20,13 @@ let tamanhoFontAtual = 16;
 const valorAdicionado = 2;
 const valorSubtraido = 2;
 
-let btnAumentaFonte = document.
+let btnAumentaFonte = document.getElementById("btnAumentaTexto");
+let btnDiminuiFonte = document.getElementById("btnAumentaTexto");
+
+btnAjuda.addEventlistener("click", btnAumentaFonte);
+btnFechar.addEventlistener("click", diminuiFonte);
+
+function aumentaFonte()  {
+     tamanhoFontAtual = tamanhoFontAtual + valorAdicionado;
+    document.documentElement.style.fontSize = '${tamanhoFontAtual}px';
+}
