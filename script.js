@@ -28,5 +28,10 @@ btnFechar.addEventlistener("click", diminuiFonte);
 
 function aumentaFonte()  {
      tamanhoFontAtual = tamanhoFontAtual + valorAdicionado;
-    document.documentElement.style.fontSize = '${tamanhoFontAtual}px';
+    document.documentElement.style.fontSize = `${tamanhoFontAtual}px`;
+}
+
+function diminuiFonte() {
+    tamanhoFontAtual = tamanhoFontAtual + valorSubtraido;
+    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
 }
