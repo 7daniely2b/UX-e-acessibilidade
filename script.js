@@ -13,3 +13,11 @@ function abreModal() {
 function fechaModal() {
     modal.style.display = "none";
 }
+
+
+// TAMANHO DE FONTES
+let tamanhoFontAtual = 16;
+const valorAdicionado = 2;
+const valorSubtraido = 2;
+
+let btnAumentaFonte = document.
