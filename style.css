@@ -1,8 +1,8 @@
 root {
     --cor-fundo: #0b1a30; /* Azul escuro profundo */
-    --cor-fundo-recipiente: #15263f; /* Azul escuro médio para cartões */
+    --cor-fundo-recipiente: #15263f; /* Azul escuro medio para cartoes */
     --cor-texto: #f4f7f6; /* Texto claro para excelente contraste */
-    --cor-primaria: #38bdf8; /* Azul claro brilhante para links e títulos */
+    --cor-primaria: #38bdf8; /* Azul claro brilhante para links e titulos */
     --cor-primaria-foco: #0ea5e9;
     --cor-destaque: #f59e0b; /* Amarelo/laranja para destaque */
     --cor-sucesso: #10b981;
@@ -92,7 +92,7 @@ body.alto-contraste .barra-acessibilidade {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px; /* Tamanho mínimo de toque */
+    min-height: 44px; /* Tamanho minimo de toque */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: transform 0.1s, background-color 0.2s;
 }
@@ -116,7 +116,7 @@ body.alto-contraste .botao-acessibilidade:hover {
     color: #000000;
 }
 
-/* --- INÍCIO: BANNER PRINCIPAL --- */
+/* --- INICIO: BANNER PRINCIPAL --- */
 .banner-boas-vindas {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
@@ -145,7 +145,7 @@ body.alto-contraste .banner-boas-vindas {
     line-height: 1.7;
 }
 
-/* Botão de Ajuda em Destaque */
+/* Botao de Ajuda em Destaque */
 .botao-ajuda-principal {
     background-color: var(--cor-perigo);
     color: white;
@@ -263,7 +263,7 @@ body.alto-contraste .cartao-dica {
 }
 
 .item-direito::before {
-    content: "✓";
+    content: "√";
     position: absolute;
     left: 5px;
     top: -2px;
