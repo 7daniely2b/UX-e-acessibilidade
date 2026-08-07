@@ -39,3 +39,8 @@ botaoLeituraVoz.addEventListener("click", () => {
     }
 
 });
+const botaoAltoContraste = document.getElementById("botao-alto-contraste");
+
+botaoAltoContraste.addEventListener("click", () => {
+    document.body.classList.toggle("alto-contraste");
+});

@@ -40,3 +40,21 @@
     outline:3px solid #facc15;
     outline-offset:3px;
 }
+.alto-contraste{
+    background-color:#000;
+    color:#fff;
+}
+
+.alto-contraste .barra-acessibilidade{
+    background:#000;
+}
+
+.alto-contraste .botao-acessibilidade{
+    background:#fff;
+    color:#000;
+    border:2px solid #ffff00;
+}
+
+.alto-contraste a{
+    color:#ffff00;
+}
