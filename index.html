@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navegação Segura</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="barra-acessibilidade">
+    <nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
+
         <div class="conteiner-acessibilidade">
 
             <span class="rotulo-acessibilidade">
@@ -17,62 +20,109 @@
 
             <div class="grupo-botoes-acessibilidade">
 
-                <button id="botao-diminuir-fonte" class="botao-acessibilidade">
+                <button id="botao-diminuir-fonte" class="botao-acessibilidade" aria-label="Diminuir fonte">
                     A-
                 </button>
 
-                <button id="botao-aumentar-fonte" class="botao-acessibilidade">
+                <button id="botao-aumentar-fonte" class="botao-acessibilidade" aria-label="Aumentar fonte">
                     A+
                 </button>
 
-                <button id="botao-leitura-voz" class="botao-acessibilidade">
+                <button id="botao-leitura-voz" class="botao-acessibilidade" aria-label="Leitura em voz alta">
                     🔊 Ler página
                 </button>
 
-                <button id="botao-alto-contraste" class="botao-acessibilidade">
+                <button id="botao-alto-contraste" class="botao-acessibilidade" aria-label="Ativar alto contraste">
                     Alto Contraste
                 </button>
 
-                <button id="botao-restaurar" class="botao-acessibilidade">
+                <button id="botao-restaurar" class="botao-acessibilidade" aria-label="Restaurar configurações">
                     Restaurar
                 </button>
 
             </div>
+
         </div>
+
     </nav>
 
     <header class="cabecalho">
+
         <h1>Navegação Segura</h1>
-        <p>Aprenda dicas de segurança digital e utilize recursos de acessibilidade.</p>
+
+        <p>
+            Aprenda como navegar na internet com segurança e conheça recursos de acessibilidade
+            que tornam a experiência digital mais inclusiva.
+        </p>
+
+        <button class="botao-ajuda">
+            🚨 Preciso de ajuda
+        </button>
+
     </header>
-    <button class="botao-ajuda">
-    🚨 Preciso de ajuda
-</button>
 
     <main class="conteudo">
 
         <section class="cartao">
+
             <h2>🔐 Segurança Digital</h2>
-            <p>Use senhas fortes e não compartilhe códigos recebidos por SMS.</p>
+
+            <p>
+                Utilize senhas fortes, não compartilhe códigos recebidos por SMS
+                e desconfie de mensagens urgentes ou desconhecidas.
+            </p>
+
         </section>
 
         <section class="cartao">
+
             <h2>♿ Recursos de Acessibilidade</h2>
-            <p>Alto contraste, aumento de fonte e leitura em voz alta.</p>
+
+            <p>
+                Este site oferece aumento e redução de fonte,
+                leitura em voz alta, alto contraste e restauração
+                das configurações.
+            </p>
+
         </section>
 
         <section class="cartao">
+
+            <h2>💡 Dicas Importantes</h2>
+
+            <ul>
+                <li>Verifique links antes de clicar.</li>
+                <li>Não compartilhe dados pessoais.</li>
+                <li>Mantenha seus aplicativos atualizados.</li>
+                <li>Use autenticação em dois fatores.</li>
+            </ul>
+
+        </section>
+
+        <section class="cartao">
+
             <h2>📞 Contatos Úteis</h2>
-            <p>Polícia: 190</p>
-            <p>Disque 100</p>
+
+            <p>🚓 Polícia Militar: <strong>190</strong></p>
+
+            <p>👮 Disque Direitos Humanos: <strong>100</strong></p>
+
+            <p>🌐 SaferNet Brasil</p>
+
         </section>
 
     </main>
 
+    <footer class="rodape">
+
+        <p>
+            Projeto original de UX e Acessibilidade • 2026
+        </p>
+
+    </footer>
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
-<footer class="rodape">
-    <p>Projeto Navegação Segura - UX e Acessibilidade © 2026</p>
-</footer>
