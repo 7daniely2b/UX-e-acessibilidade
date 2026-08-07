@@ -3,59 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de Acessibilidade</title>
-
+    <title>Navegação Segura</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <nav class="barra-acessibilidade">
+        <div class="conteiner-acessibilidade">
+
+            <span class="rotulo-acessibilidade">
+                Acessibilidade
+            </span>
+
+            <div class="grupo-botoes-acessibilidade">
+
+                <button id="botao-diminuir-fonte" class="botao-acessibilidade">
+                    A-
+                </button>
+
+                <button id="botao-aumentar-fonte" class="botao-acessibilidade">
+                    A+
+                </button>
+
+                <button id="botao-leitura-voz" class="botao-acessibilidade">
+                    🔊 Ler página
+                </button>
+
+                <button id="botao-alto-contraste" class="botao-acessibilidade">
+                    Alto Contraste
+                </button>
+
+                <button id="botao-restaurar" class="botao-acessibilidade">
+                    Restaurar
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <header class="cabecalho">
+        <h1>Navegação Segura</h1>
+        <p>Aprenda dicas de segurança digital e utilize recursos de acessibilidade.</p>
+    </header>
+
+    <main class="conteudo">
+
+        <section class="cartao">
+            <h2>🔐 Segurança Digital</h2>
+            <p>Use senhas fortes e não compartilhe códigos recebidos por SMS.</p>
+        </section>
+
+        <section class="cartao">
+            <h2>♿ Recursos de Acessibilidade</h2>
+            <p>Alto contraste, aumento de fonte e leitura em voz alta.</p>
+        </section>
+
+        <section class="cartao">
+            <h2>📞 Contatos Úteis</h2>
+            <p>Polícia: 190</p>
+            <p>Disque 100</p>
+        </section>
+
+    </main>
+
     <script src="script.js"></script>
+
 </body>
 </html>
-<nav class="barra-acessibilidade" aria-label="Menu de acessibilidade">
-    <div class="conteiner-acessibilidade">
-
-        <span class="rotulo-acessibilidade">
-            Acessibilidade
-        </span>
-
-        <div class="grupo-botoes-acessibilidade">
-
-            <button
-                id="botao-diminuir-fonte"
-                class="botao-acessibilidade"
-                aria-label="Diminuir tamanho da fonte">
-                A-
-            </button>
-
-            <button
-                id="botao-aumentar-fonte"
-                class="botao-acessibilidade"
-                aria-label="Aumentar tamanho da fonte">
-                A+
-            </button>
-
-            <button
-                id="botao-leitura-voz"
-                class="botao-acessibilidade"
-                aria-label="Leitura em voz alta">
-                🔊 Ler página
-            </button>
-
-        </div>
-
-    </div>
-</nav>
-<script src="script.js"></script>
-<button
-    id="botao-alto-contraste"
-    class="botao-acessibilidade"
-    aria-label="Ativar ou desativar alto contraste">
-    Alto Contraste
-</button>
-<button
-    id="botao-redefinir"
-    class="botao-acessibilidade"
-    aria-label="Restaurar configurações de acessibilidade">
-    Restaurar
-</button>
-<link rel="stylesheet" href="style.css">
