@@ -14,6 +14,11 @@ body{
     top:0;
     z-index:1000;
 }
+.barra-acessibilidade{
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
 .conteiner-acessibilidade{
     display:flex;
@@ -86,12 +91,14 @@ body{
 }
 
 .cartao{
+    min-height:230px;
     background:white;
     border-radius:15px;
     padding:25px;
     box-shadow:0 5px 15px rgba(0,0,0,.15);
     transition:.3s;
 }
+
 
 .cartao:hover{
     transform:translateY(-5px);
@@ -109,11 +116,11 @@ body{
     background:#dc2626;
     color:white;
     border:none;
-    border-radius:30px;
     padding:15px 30px;
+    border-radius:30px;
     font-size:18px;
+    font-weight:bold;
     cursor:pointer;
-    transition:.3s;
 }
 
 .botao-ajuda:hover{
@@ -123,11 +130,11 @@ body{
 /* Rodapé */
 
 .rodape{
+    text-align:center;
     background:#1f2937;
     color:white;
-    text-align:center;
     padding:20px;
-    margin-top:40px;
+    margin-top:50px;
 }
 
 /* Alto contraste */
