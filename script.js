@@ -44,3 +44,15 @@ const botaoAltoContraste = document.getElementById("botao-alto-contraste");
 botaoAltoContraste.addEventListener("click", () => {
     document.body.classList.toggle("alto-contraste");
 });
+const botaoRedefinir = document.getElementById("botao-redefinir");
+
+botaoRedefinir.addEventListener("click", () => {
+
+    tamanhoFonte = 100;
+    document.body.style.fontSize = "100%";
+
+    document.body.classList.remove("alto-contraste");
+
+    speechSynthesis.cancel();
+
+});
