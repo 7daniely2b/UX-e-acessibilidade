@@ -1,11 +1,18 @@
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    color:#333;
+    line-height:1.6;
+    transition:.3s;
 }
+
+/* Barra de acessibilidade */
 
 .barra-acessibilidade{
     background:#1f2937;
-    padding:15px;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .conteiner-acessibilidade{
@@ -17,6 +24,7 @@ body{
 
 .rotulo-acessibilidade{
     color:white;
+    font-size:18px;
     font-weight:bold;
 }
 
@@ -30,45 +38,141 @@ body{
     background:#2563eb;
     color:white;
     border:none;
-    padding:10px 15px;
     border-radius:8px;
+    padding:10px 16px;
     cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 .botao-acessibilidade:hover{
     background:#1d4ed8;
+    transform:translateY(-2px);
 }
 
 .botao-acessibilidade:focus{
     outline:3px solid yellow;
+    outline-offset:3px;
 }
+
+/* Cabeçalho */
 
 .cabecalho{
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+    color:white;
     text-align:center;
-    padding:40px;
+    padding:60px 20px;
 }
 
+.cabecalho h1{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.cabecalho p{
+    font-size:1.2rem;
+}
+
+/* Conteúdo */
+
 .conteudo{
+    max-width:1100px;
+    margin:40px auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
     padding:20px;
 }
 
 .cartao{
-    border:1px solid #ccc;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
 }
+
+.cartao:hover{
+    transform:translateY(-5px);
+}
+
+.cartao h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+/* Botão de ajuda */
+
+.botao-ajuda{
+    margin-top:20px;
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:30px;
+    padding:15px 30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.botao-ajuda:hover{
+    background:#b91c1c;
+}
+
+/* Rodapé */
+
+.rodape{
+    background:#1f2937;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* Alto contraste */
 
 .alto-contraste{
     background:black;
     color:white;
 }
 
-.alto-contraste .cartao{
+.alto-contraste .cabecalho{
     background:black;
+}
+
+.alto-contraste .cartao{
+    background:#111;
     color:white;
     border:2px solid yellow;
+}
+
+.alto-contraste .botao-acessibilidade{
+    background:white;
+    color:black;
+    border:2px solid yellow;
+}
+
+.alto-contraste .rodape{
+    background:black;
+    color:white;
+}
+
+/* Responsividade */
+
+@media(max-width:768px){
+
+    .conteiner-acessibilidade{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .grupo-botoes-acessibilidade{
+        justify-content:center;
+    }
+
+    .cabecalho h1{
+        font-size:2rem;
+    }
+
 }
