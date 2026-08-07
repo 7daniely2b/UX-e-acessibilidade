@@ -58,3 +58,20 @@
 .alto-contraste a{
     color:#ffff00;
 }
+.conteiner-acessibilidade{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.grupo-botoes-acessibilidade{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap; /* impede que os botões quebrem de linha */
+}
+
+.botao-acessibilidade{
+    min-width: 90px;
+}
